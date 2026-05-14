@@ -1,0 +1,9 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    uses: nave-scuola/infra-ci-workflows/.github/workflows/angular-ci.yml@main
+    secrets:
+      PAAS_DEPLOY_TOKEN: ${{ secrets.PAAS_DEPLOY_TOKEN }}
