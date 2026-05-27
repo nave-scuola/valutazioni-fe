@@ -8,6 +8,6 @@ import { Component, input } from '@angular/core';
 })
 export class Card {
   image = input<string>('');
-  titolo = input.required<string>();
-  descrizione = input<string>('');
+  codiceStudente = input.required<string>();
+  voto = input<number>();
 }
