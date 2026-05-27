@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: '/apps/catalogo-corsi'
+  apiBaseUrl: '/apps/valutazioni'
 };
