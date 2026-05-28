@@ -7,5 +7,6 @@
     <div class="card-body">
         <h4 class="card-title fw-semibold text-center text-primary">{{ codiceStudente() }}</h4>
         <p class="card-text text-muted text-end">Voto: {{ voto() }}</p>
+        <button class="btn btn-primary btn-sm mt-2" (click)="selezionato.emit()"> Dettaglio </button>
     </div>
 </div>

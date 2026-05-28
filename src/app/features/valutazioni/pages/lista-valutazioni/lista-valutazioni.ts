@@ -93,4 +93,8 @@ export class ListaValutazioni {
       data: '2026-04-28'
     }
   ];
+
+  onCardClick(item: ValutazioneRTO): void {
+    console.log('Selezionato:', item);
+  }
 }
