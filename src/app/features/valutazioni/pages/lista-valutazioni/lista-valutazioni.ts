@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Card } from '../../../../shared/components/card/card';
 import { ValutazioneRTO } from '../../models/valutazione.model';
-import { ValutazioneStore } from '../../services/valutazione-store';
+import { ValutazioneFacade } from '../../services/valutazione-facade';
 
 @Component({
   selector: 'app-lista-valutazioni',
@@ -12,9 +12,10 @@ import { ValutazioneStore } from '../../services/valutazione-store';
 export class ListaValutazioni {
   titolo = 'Valutazioni';
 
-  private store = inject(ValutazioneStore);
+  private facade = inject(ValutazioneFacade);
   readonly filtroTesto = signal('');
-  readonly valutazioni = this.store.getAll();
+
+  readonly valutazioni = this.facade.valutazioni;
   
   readonly valutazioniFiltrate = computed(() => {
     const filtro = this.filtroTesto().toLowerCase();
