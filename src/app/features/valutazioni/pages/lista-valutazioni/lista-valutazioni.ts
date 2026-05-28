@@ -11,6 +11,9 @@ import { ValutazioneRTO } from '../../models/valutazione.model';
 export class ListaValutazioni {
   titolo = 'Valutazioni';
 
+  onCardClick(item: ValutazioneRTO): void {
+    console.log('Selezionato:', item);
+  }
   readonly valutazioni = signal<ValutazioneRTO[]>([
     { idValutazione: 1, codiceStudente: 'STU001', codiceEdizione: 'ED2026', voto: 8, livelloRaggiunto: 'Avanzato', data: '2026-05-27' },
     { idValutazione: 2, codiceStudente: 'STU002', codiceEdizione: 'ED2026', voto: 6, livelloRaggiunto: 'Intermedio', data: '2026-05-20' },
