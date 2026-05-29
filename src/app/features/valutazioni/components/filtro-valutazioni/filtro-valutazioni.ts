@@ -12,11 +12,12 @@ export class FiltroValutazioni {
   private fb = inject(FormBuilder);
 
   filtroForm = this.fb.nonNullable.group({
+    studente: [''],
     voto: [''],
     data: [''],
   });
 
-  filtroApplicato = output<{ voto: string; data: string }>();
+  filtroApplicato = output<{ studente: string; voto: string; data: string }>();
   
   onSubmit(): void {
     if (this.filtroForm.valid) this.filtroApplicato.emit(this.filtroForm.getRawValue());

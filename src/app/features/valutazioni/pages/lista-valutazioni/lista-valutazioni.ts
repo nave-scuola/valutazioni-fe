@@ -17,9 +17,9 @@ export class ListaValutazioni {
   private router = inject(Router);
 
   private facade = inject(ValutazioneFacade);
-  readonly filtroTesto = signal('');
 
-  readonly filtroAvanzato = signal<{ voto: string; data: string }>({
+  readonly filtroAvanzato = signal<{ studente: string; voto: string; data: string }>({
+    studente: '',
     voto: '',
     data: '',
   });
@@ -28,13 +28,11 @@ export class ListaValutazioni {
   readonly valutazioni = this.facade.valutazioni;
   
   readonly valutazioniFiltrate = computed(() => {
-    const testo = this.filtroTesto().toLowerCase();
-    const { voto, data } = this.filtroAvanzato();
+    const { studente, voto, data } = this.filtroAvanzato();
+    const testo = studente.toLowerCase();
     
     return this.valutazioni.filter(v => {
-      const matchStudente =
-        !testo || v.codiceStudente.toLowerCase().includes(testo);
-      
+      const matchStudente = !testo || v.codiceStudente.toLowerCase().includes(testo);
       const matchVoto = !voto || v.voto.toString() === voto;
       const matchData = !data || v.data === data;
       
@@ -46,7 +44,8 @@ export class ListaValutazioni {
     this.router.navigate(['/valutazioni', item.idValutazione]);
   }
 
-  onFiltro(filtro: { voto: string; data: string }) {
+  onFiltro(filtro: { studente: string; voto: string; data: string }) {
+    console.log('Filtro ricevuto:', filtro);
     this.filtroAvanzato.set(filtro);
   }
 }
