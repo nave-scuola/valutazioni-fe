@@ -1,0 +1,25 @@
+<form [formGroup]="filtroForm" (ngSubmit)="onSubmit()" class="card card-body mb-3">
+    <div class="row g-2 align-items-end">
+
+        <div class="col-md-4">
+            <label class="form-label">Studente</label>
+            <input formControlName="studente" class="form-control" placeholder="Cerca studente">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Voto</label>
+            <input formControlName="voto" class="form-control" placeholder="Cerca voto">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Data</label>
+            <input formControlName="data" type="date" class="form-control">
+        </div>
+
+        <div class="col-md-auto">
+            <button type="submit" class="btn btn-primary">Filtra</button>
+            <button type="button" class="btn btn-outline-secondary ms-2" (click)="onReset()">Reset</button>
+        </div>
+        
+    </div>
+</form>

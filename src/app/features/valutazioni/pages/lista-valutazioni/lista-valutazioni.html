@@ -1,6 +1,8 @@
 <div class="container mt-4">
 
-    <input type="text" class="form-control mb-3 border-2" placeholder="Cerca per studente, livello o voto" [value]="filtroTesto()" (input)="filtroTesto.set($any($event.target).value)" />
+    
+    <app-filtro-valutazioni (filtroApplicato)="onFiltro($event)"></app-filtro-valutazioni>
+
 
     @if (valutazioniFiltrate().length === 0) {
         <div class="alert alert-info text-center">
