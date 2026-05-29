@@ -2,11 +2,12 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Card } from '../../../../shared/components/card/card';
 import { ValutazioneRTO } from '../../models/valutazione.model';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
+import { FiltroValutazioni } from '../../components/filtro-valutazioni/filtro-valutazioni';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-valutazioni',
-  imports: [Card],
+  imports: [Card, FiltroValutazioni],
   templateUrl: './lista-valutazioni.html',
   styleUrl: './lista-valutazioni.css',
 })
@@ -18,21 +19,34 @@ export class ListaValutazioni {
   private facade = inject(ValutazioneFacade);
   readonly filtroTesto = signal('');
 
+  readonly filtroAvanzato = signal<{ voto: string; data: string }>({
+    voto: '',
+    data: '',
+  });
+
+
   readonly valutazioni = this.facade.valutazioni;
   
   readonly valutazioniFiltrate = computed(() => {
-    const filtro = this.filtroTesto().toLowerCase();
-
-    if (!filtro) return this.valutazioni;
-
-    return this.valutazioni.filter(v =>
-      v.codiceStudente.toLowerCase().includes(filtro) ||
-      v.livelloRaggiunto.toLowerCase().includes(filtro) ||
-      v.voto.toString().includes(filtro)
-    );
+    const testo = this.filtroTesto().toLowerCase();
+    const { voto, data } = this.filtroAvanzato();
+    
+    return this.valutazioni.filter(v => {
+      const matchStudente =
+        !testo || v.codiceStudente.toLowerCase().includes(testo);
+      
+      const matchVoto = !voto || v.voto.toString() === voto;
+      const matchData = !data || v.data === data;
+      
+      return matchStudente && matchVoto && matchData;
+    });
   });
 
   onCardClick(item: ValutazioneRTO): void {
     this.router.navigate(['/valutazioni', item.idValutazione]);
+  }
+
+  onFiltro(filtro: { voto: string; data: string }) {
+    this.filtroAvanzato.set(filtro);
   }
 }
