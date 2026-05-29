@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Card } from '../../../../shared/components/card/card';
 import { ValutazioneRTO } from '../../models/valutazione.model';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-valutazioni',
@@ -11,6 +12,8 @@ import { ValutazioneFacade } from '../../services/valutazione-facade';
 })
 export class ListaValutazioni {
   titolo = 'Valutazioni';
+
+  private router = inject(Router);
 
   private facade = inject(ValutazioneFacade);
   readonly filtroTesto = signal('');
@@ -30,6 +33,6 @@ export class ListaValutazioni {
   });
 
   onCardClick(item: ValutazioneRTO): void {
-    console.log('Selezionato:', item);
+    this.router.navigate(['/valutazioni', item.idValutazione]);
   }
 }

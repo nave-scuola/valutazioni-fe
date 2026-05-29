@@ -1,1 +1,20 @@
-<p>dettaglio-valutazione works!</p>
+<div class="container mt-4">
+    @if (valutazione()) {
+        <div class="card shadow p-4">
+            <h2 class="text-primary mb-3">
+                Studente: {{ valutazione()!.codiceStudente }}
+            </h2>
+            
+            <p><strong>Edizione:</strong> {{ valutazione()!.codiceEdizione }}</p>
+            <p><strong>Voto:</strong> {{ valutazione()!.voto }}</p>
+            <p><strong>Livello:</strong> {{ valutazione()!.livelloRaggiunto }}</p>
+            <p><strong>Data:</strong> {{ valutazione()!.data }}</p>
+        </div>
+    } @else {
+        <div class="alert alert-warning">Valutazione non trovata.</div>
+    }
+
+    <button class="btn btn-primary text-white mt-3" routerLink="/valutazioni">
+        Torna alla lista
+    </button>
+</div>
