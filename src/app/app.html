@@ -5,6 +5,12 @@
     <p class="fw-bolder text-muted">Gestisci e consulta le valutazioni degli studenti</p>
   </div>
 
-  <app-lista-valutazioni />
-
+  <nav class="navbar navbar-dark bg-primary mb-4 shadow-sm rounded-3 py-1">
+    <div class="container d-flex justify-content-center">
+      <a class="navbar-brand fw-bold fs-2 text-uppercase" routerLink="/valutazioni">
+        Valutazioni
+      </a>
+    </div>
+  </nav>
+  <router-outlet />
 </div>
