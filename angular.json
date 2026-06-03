@@ -107,6 +107,9 @@
             },
             "development": {
               "buildTarget": "valutazioni-fe:build:development"
+            },
+            "github": {
+              "buildTarget": "valutazioni-fe:build:github"
             }
           },
           "defaultConfiguration": "development"
@@ -115,3 +118,4 @@
     }
   }
 }
+
