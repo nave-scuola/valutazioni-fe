@@ -1,6 +1,6 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dettaglio-valutazione',
@@ -9,11 +9,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './dettaglio-valutazione.css',
 })
 export class DettaglioValutazione {
-  id = input.required<string>();
-
+  private route = inject(ActivatedRoute);
   private facade = inject(ValutazioneFacade);
 
-  readonly valutazione = computed(() =>
-    this.facade.getById(Number(this.id()))
-  );
+  readonly valutazione = this.facade.valutazione;
+  readonly loading = this.facade.loading;
+  readonly errore = this.facade.errore;
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.facade.loadById(id);
+  }
 }

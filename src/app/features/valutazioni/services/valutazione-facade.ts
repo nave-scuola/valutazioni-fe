@@ -11,12 +11,13 @@ export class ValutazioneFacade {
   readonly valutazioni = this.store.valutazioni;
   readonly loading = this.store.loading;
   readonly errore = this.store.errore;
+  readonly valutazione = this.store.valutazione;
 
   loadAll(): void {
     this.store.loadAll();
   }
 
-  getById(id: number): ValutazioneRTO | undefined {
-    return this.store.getById(id);
+  loadById(id: number): void{
+    this.store.loadById(id);
   }
 }
