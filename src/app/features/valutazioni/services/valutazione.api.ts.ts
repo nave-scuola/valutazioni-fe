@@ -14,4 +14,8 @@ export class ValutazioneApi {
   getAll(): Observable<ValutazioneRTO[]> {
     return this.http.get<ValutazioneRTO[]>(`${this.baseUrl}/valutazioni`);
   }
+
+  getById(id: number): Observable<ValutazioneRTO>{
+    return this.http.get<ValutazioneRTO>(`${this.baseUrl}/valutazioni/${id}`);
+  }
 }
