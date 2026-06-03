@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: '/apps/valutazioni'
+  apiBaseUrl: 'http://localhost:8083/valutazioni'
 };

@@ -20,11 +20,28 @@ export class FiltroValutazioni {
   filtroApplicato = output<{ studente: string; voto: string; data: string }>();
   
   onSubmit(): void {
-    if (this.filtroForm.valid) this.filtroApplicato.emit(this.filtroForm.getRawValue());
+    if (!this.filtroForm.valid) return;
+
+    const raw = this.filtroForm.getRawValue();
+
+    const voto = raw.voto ? raw.voto.toString() : '';
+    const data = raw.data ? raw.data.toString().substring(0, 10) : '';
+
+    this.filtroApplicato.emit({
+      studente: raw.studente ?? '',
+      voto,
+      data
+    });
   }
   
   onReset(): void {
     this.filtroForm.reset();
-    this.filtroApplicato.emit(this.filtroForm.getRawValue());
+
+    this.filtroApplicato.emit({
+      studente: '',
+      voto: '',
+      data: ''
+    });
   }
 }
+
