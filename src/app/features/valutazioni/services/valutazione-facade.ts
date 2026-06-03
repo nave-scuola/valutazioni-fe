@@ -8,7 +8,13 @@ import { ValutazioneRTO } from '../models/valutazione.model';
 export class ValutazioneFacade {
   private store = inject(ValutazioneStore);
 
-  readonly valutazioni = this.store.getAll();
+  readonly valutazioni = this.store.valutazioni;
+  readonly loading = this.store.loading;
+  readonly errore = this.store.errore;
+
+  loadAll(): void {
+    this.store.loadAll();
+  }
 
   getById(id: number): ValutazioneRTO | undefined {
     return this.store.getById(id);
