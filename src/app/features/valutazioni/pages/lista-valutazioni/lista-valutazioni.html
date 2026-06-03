@@ -1,24 +1,57 @@
 <div class="container mt-4">
 
-    
-    <app-filtro-valutazioni (filtroApplicato)="onFiltro($event)"></app-filtro-valutazioni>
+  <div class="mb-4">
+    <h4 class="mb-3 text-center bg-info rounded text-white py-1">
+      Cerca valutazioni
+    </h4>
 
-    @if (facade.loading()) {
-        <div class="text-center my-5">
-            <div class="spinner-border" role="status"></div>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <app-filtro-valutazioni
+          (filtroApplicato)="onFiltro($event)">
+        </app-filtro-valutazioni>
+      </div>
+    </div>
+  </div>
+
+  @if (facade.loading()) {
+    <div class="text-center my-5">
+      <div class="spinner-border" role="status"></div>
+    </div>
+  }
+
+  @else if (facade.errore()) {
+    <div class="alert alert-danger text-center">
+      {{ facade.errore() }}
+    </div>
+  }
+
+  @else if (valutazioniFiltrate().length === 0) {
+    <div class="alert alert-info text-center">
+      Nessun elemento trovato.
+    </div>
+  }
+
+  @else {
+    <div class="row g-4">
+      @for (item of valutazioniFiltrate(); track $index) {
+        <div class="col-12 col-sm-6 col-lg-3">
+          <app-card
+            [codiceStudente]="item.codiceStudente"
+            [voto]="item.voto"
+            [image]="'https://th.bing.com/th/id/OIP.3ZvnrEPm49k4OJ5UMN0tawHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'"
+            (selezionato)="onCardClick(item)"
+          />
         </div>
-    } @else if (facade.errore()) {
-        <div class="alert alert-danger text-center">{{ facade.errore() }}</div>
-    } @else if (valutazioniFiltrate().length === 0) {
-        <div class="alert alert-info text-center">Nessun elemento trovato.</div>
-    } @else {
-        <div class="row g-3">
-            @for (item of valutazioniFiltrate(); track $index) {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <app-card [codiceStudente]="item.codiceStudente" [voto]="item.voto" [image]="'https://th.bing.com/th/id/OIP.3ZvnrEPm49k4OJ5UMN0tawHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'" 
-                    (selezionato)="onCardClick(item)" />
-                </div>
-            }
-        </div>
-    }
+      }
+    </div>
+  }
+
+  <div class="mt-4">
+    <p class="fw-semibold mb-2 text-center bg-info rounded text-white py-1">Crea nuova valutazione</p>
+
+    <a routerLink="nuova" class="btn btn-primary text-light px-4">
+        Nuova valutazione
+    </a>
+  </div>
 </div>

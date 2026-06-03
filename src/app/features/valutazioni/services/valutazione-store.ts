@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { ValutazioneRTO } from '../models/valutazione.model';
+import { ValutazioneRTO, ValutazioneTO } from '../models/valutazione.model';
 import { ValutazioneApi } from './valutazione.api.ts';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -51,7 +51,15 @@ export class ValutazioneStore {
     });
   }
 
-  getById(id: number): ValutazioneRTO | undefined {
-    return this._valutazioni().find(item => item.idValutazione === id);
+  create(to: ValutazioneTO) {
+    return this.api.create(to);
+  }
+
+  update(id: number, to: ValutazioneTO) {
+    return this.api.update(id, to);
+  }
+
+  delete(id: number) {
+    return this.api.delete(id);
   }
 }

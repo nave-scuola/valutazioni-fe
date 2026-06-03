@@ -3,11 +3,11 @@ import { Card } from '../../../../shared/components/card/card';
 import { ValutazioneRTO } from '../../models/valutazione.model';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
 import { FiltroValutazioni } from '../../components/filtro-valutazioni/filtro-valutazioni';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-valutazioni',
-  imports: [Card, FiltroValutazioni],
+  imports: [Card, FiltroValutazioni, RouterLink],
   templateUrl: './lista-valutazioni.html',
   styleUrl: './lista-valutazioni.css',
 })
