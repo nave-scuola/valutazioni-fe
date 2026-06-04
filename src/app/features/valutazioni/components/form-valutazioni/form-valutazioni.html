@@ -1,0 +1,59 @@
+<div class="container mt-4">
+
+  <h2 class="mb-3">
+    {{ id ? 'Modifica valutazione' : 'Nuova valutazione' }}
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="salva()">
+
+    <div class="mb-3">
+      <label class="form-label">Codice Studente</label>
+      <input type="text" class="form-control" formControlName="codiceStudente">
+      @if (form.controls.codiceStudente.invalid && form.controls.codiceStudente.touched) {
+        <div class="text-danger small">Codice studente non valido</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Codice Edizione</label>
+      <input type="text" class="form-control" formControlName="codiceEdizione">
+      @if (form.controls.codiceEdizione.invalid && form.controls.codiceEdizione.touched) {
+        <div class="text-danger small">Codice edizione non valido</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Voto (1–10)</label>
+      <input type="number" class="form-control" formControlName="voto">
+      @if (form.controls.voto.invalid && form.controls.voto.touched) {
+        <div class="text-danger small">Il voto deve essere tra 1 e 10</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Livello Raggiunto</label>
+      <input type="text" class="form-control" formControlName="livelloRaggiunto">
+      @if (form.controls.livelloRaggiunto.invalid && form.controls.livelloRaggiunto.touched) {
+        <div class="text-danger small">Campo obbligatorio</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Commento (opzionale)</label>
+      <textarea class="form-control" formControlName="commento"></textarea>
+    </div>
+
+    <button class="btn btn-primary me-2" type="submit" [disabled]="form.invalid">
+      Salva
+    </button>
+
+    <a routerLink="/valutazioni" class="btn btn-secondary">Annulla</a>
+
+    @if (id) {
+      <button class="btn btn-danger float-end" type="button" (click)="elimina()">
+        Elimina
+      </button>
+    }
+  </form>
+</div>
+

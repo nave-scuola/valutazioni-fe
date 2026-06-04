@@ -12,12 +12,13 @@ export class DettaglioValutazione {
   private route = inject(ActivatedRoute);
   private facade = inject(ValutazioneFacade);
 
+  id = Number(this.route.snapshot.paramMap.get('id'));
+
   readonly valutazione = this.facade.valutazione;
   readonly loading = this.facade.loading;
   readonly errore = this.facade.errore;
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.facade.loadById(id);
+    this.facade.loadById(this.id);
   }
 }
