@@ -1,1 +1,173 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-navy {
+  background-color: #000080 !important;
+  color: white !important;
+  border: none;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.text-navy {
+  color: #000080;
+}
+
+body, .card, .page-header-sticky, .lista-scroll {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gestione dark mode */
+.dark-mode {
+  background-color: #0f0f0f !important;
+  color: #e6e6e6;
+}
+
+.dark-mode .page-header-sticky {
+  background-color: #1e1e1e !important;
+  border-bottom: 2px solid #9bbcff;
+}
+
+.dark-mode .valutazioni-header {
+  background-color: #121212 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode h1,
+.dark-mode h4,
+.dark-mode .titolo-linea {
+  color: #9bbcff !important;
+}
+
+.dark-mode .titolo-linea::after {
+  background: #9bbcff;
+}
+
+.dark-mode .card {
+  background-color: #181818 !important;
+  border-color: #2a2a2a !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .card img {
+  filter: brightness(0.8);
+  border-radius: 10px;
+}
+
+.dark-mode p,
+.dark-mode .text-muted {
+  color: #cfcfcf !important;
+}
+
+.dark-mode .freccia-toggle i {
+  color: #cfcfcf;
+  transition: color 0.2s ease;
+}
+
+.dark-mode .freccia-toggle:hover i {
+  color: #9bbcff;
+}
+
+.dark-mode .lista-scroll::-webkit-scrollbar-track {
+  background: #1b1b1b;
+}
+
+.dark-mode .lista-scroll::-webkit-scrollbar-thumb {
+  background: #9bbcff;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea,
+.dark-mode .form-control {
+  background-color: #1b1b1b !important;
+  color: #e6e6e6 !important;
+  border: 1px solid #333 !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: #aaaaaa !important;
+}
+
+.dark-mode input:focus,
+.dark-mode select:focus,
+.dark-mode textarea:focus,
+.dark-mode .form-control:focus {
+  background-color: #222 !important;
+  color: #fff !important;
+  border-color: #9bbcff !important;
+  box-shadow: 0 0 0 0.2rem rgba(155, 188, 255, 0.25) !important;
+}
+
+.dark-mode label {
+  color: #dcdcdc !important;
+}
+
+.dark-mode select {
+  background-image: none !important;
+}
+
+.darkmode-toggle {
+  width: 55px;
+  height: 28px;
+  background: #ddd;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  transition: background-color 0.3s ease;
+}
+
+.darkmode-toggle .icon-sun,
+.darkmode-toggle .icon-moon {
+  font-size: 16px;
+  position: absolute;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.darkmode-toggle .icon-sun {
+  left: 8px;
+  color: #f1c40f;
+  opacity: 1;
+}
+
+.darkmode-toggle .icon-moon {
+  right: 8px;
+  color: #9bbcff;
+  opacity: 0;
+}
+
+.darkmode-toggle .toggle-ball {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.dark-mode .darkmode-toggle {
+  background: #1e1e1e;
+}
+
+.dark-mode .darkmode-toggle .toggle-ball {
+  transform: translateX(27px);
+}
+
+.dark-mode .darkmode-toggle .icon-sun {
+  opacity: 0;
+}
+
+.dark-mode .darkmode-toggle .icon-moon {
+  opacity: 1;
+}
+
+
+
+

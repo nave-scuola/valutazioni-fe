@@ -20,7 +20,12 @@
         </h2>
 
         <p><strong>Edizione:</strong> {{ valutazione()!.codiceEdizione }}</p>
-        <p><strong>Voto:</strong> {{ valutazione()!.voto }}</p>
+        <p>
+          <strong>Voto:</strong> 
+          <span [ngClass]="classeBadge(valutazione()!.voto)">
+            {{ valutazione()!.voto }}
+          </span>
+        </p>
         <p><strong>Livello:</strong> {{ valutazione()!.livelloRaggiunto }}</p>
         <p><strong>Data:</strong> {{ valutazione()!.data }}</p>
       </div>
@@ -31,11 +36,11 @@
     }
   }
 
-  <button class="btn btn-primary text-white mt-3" routerLink="/valutazioni">
+  <button class="btn btn-navy text-white mt-3" routerLink="/valutazioni">
     Torna alla lista
   </button>
 
-  <a [routerLink]="['/valutazioni', id, 'modifica']" class="btn btn-info text-white ms-3 mt-3">
+  <a [routerLink]="['/valutazioni', id, 'modifica']" class="btn btn-primary text-white ms-3 mt-3">
     Modifica
   </a>
 

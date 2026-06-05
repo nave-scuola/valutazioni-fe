@@ -1,10 +1,11 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dettaglio-valutazione',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './dettaglio-valutazione.html',
   styleUrl: './dettaglio-valutazione.css',
 })
@@ -21,4 +22,11 @@ export class DettaglioValutazione {
   ngOnInit(): void {
     this.facade.loadById(this.id);
   }
+
+  classeBadge(voto: number) {
+    if (voto >= 8) return 'badge-voto badge-alto';
+    if (voto >= 6) return 'badge-voto badge-medio';
+    return 'badge-voto badge-basso';
+  }
+
 }

@@ -3,11 +3,12 @@ import { Card } from '../../../../shared/components/card/card';
 import { ValutazioneRTO } from '../../models/valutazione.model';
 import { ValutazioneFacade } from '../../services/valutazione-facade';
 import { FiltroValutazioni } from '../../components/filtro-valutazioni/filtro-valutazioni';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { IMMAGINI_STUDENTI } from '../../models/immagini-studenti';
 
 @Component({
   selector: 'app-lista-valutazioni',
-  imports: [Card, FiltroValutazioni, RouterLink],
+  imports: [Card, FiltroValutazioni],
   templateUrl: './lista-valutazioni.html',
   styleUrl: './lista-valutazioni.css',
 })
@@ -51,5 +52,9 @@ export class ListaValutazioni {
   onFiltro(filtro: { studente: string; voto: string; data: string }) {
     console.log('Filtro ricevuto:', filtro);
     this.filtroAvanzato.set(filtro);
+  }
+
+  getImmagineStudente(codice: string): string {
+    return IMMAGINI_STUDENTI[codice]?? 'https://tse4.mm.bing.net/th/id/OIP.KKWvbSytnSIkIpWTfKUFYwHaIs?rs=1&pid=ImgDetMain&o=7&rm=3';
   }
 }

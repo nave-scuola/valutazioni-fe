@@ -1,16 +1,30 @@
-<div class="container py-4">
+<div class="container py-2">
 
-  <div class="text-center mb-4">
-    <h1 class="fw-bold text-uppercase text-primary">{{ title }}</h1>
-    <p class="fw-bolder text-muted">Gestisci e consulta le valutazioni degli studenti</p>
+  <div class="page-header-sticky mb-3 d-flex justify-content-between align-items-center">
+
+    <!-- Titolo -->
+    <div class="flex-grow-1 text-center">
+      <h1 class="fw-bold text-uppercase text-navy">{{ title }}</h1>
+      <p class="fw-bolder text-muted">Gestisci e consulta le valutazioni degli studenti</p>
+    </div>
+
+    <!-- Toggle Dark Mode -->
+    <div class="darkmode-toggle" (click)="toggleDarkMode($event)">
+      <i class="bi bi-sun-fill icon-sun"></i>
+      <i class="bi bi-moon-fill icon-moon"></i>
+      <div class="toggle-ball"></div>
+    </div>
+
   </div>
 
-  <nav class="navbar navbar-dark bg-primary mb-4 shadow-sm rounded-3 py-1">
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark mb-3 shadow-sm rounded-3 py-1 valutazioni-header">
     <div class="container d-flex justify-content-center">
       <a class="navbar-brand fw-bold fs-2 text-uppercase" routerLink="/valutazioni">
         Valutazioni
       </a>
     </div>
   </nav>
+
   <router-outlet />
 </div>

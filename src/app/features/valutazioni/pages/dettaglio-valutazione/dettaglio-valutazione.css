@@ -1,0 +1,64 @@
+.card {
+  border: none;
+  border-radius: 14px;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+}
+
+.card h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: #007bff;
+  margin-bottom: 1.2rem;
+}
+
+.card p {
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  color: #444;
+}
+
+.card p strong {
+  color: #222;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.alert {
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.badge-voto {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.badge-alto {
+  background-color: #d4f8e8;
+  color: #0f8a4b;
+}
+
+.badge-medio {
+  background-color: #fff4d6;
+  color: #b88600;
+}
+
+.badge-basso {
+  background-color: #ffe0e0;
+  color: #c62828;
+}

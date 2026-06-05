@@ -1,15 +1,25 @@
 <div class="container mt-4">
 
-  <div class="mb-4">
-    <h4 class="mb-3 text-center bg-info rounded text-white py-1">
-      Cerca valutazioni
-    </h4>
-
+  <div class="mb-3">
+    
     <div class="card shadow-sm">
-      <div class="card-body">
-        <app-filtro-valutazioni
-          (filtroApplicato)="onFiltro($event)">
-        </app-filtro-valutazioni>
+      
+      <div class="d-flex align-items-center position-relative">
+        <h4 class="card-title titolo-linea text-navy text-center flex-grow-1 mt-1">
+          Cerca o crea valutazioni
+        </h4>
+        
+        <button class="btn btn-link p-0 position-absolute end-0 me-2 freccia-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#filtroCollapse">
+          <i class="bi bi-chevron-down fs-4"></i>
+        </button>
+      </div>
+
+      <div class="card-body border-bottom pt-1 pb-2">
+
+        <div class="collapse mt-1" id="filtroCollapse">
+          <app-filtro-valutazioni (filtroApplicato)="onFiltro($event)" />
+        </div>
+
       </div>
     </div>
   </div>
@@ -33,25 +43,20 @@
   }
 
   @else {
-    <div class="row g-4">
-      @for (item of valutazioniFiltrate(); track $index) {
-        <div class="col-12 col-sm-6 col-lg-3">
-          <app-card
-            [codiceStudente]="item.codiceStudente"
-            [voto]="item.voto"
-            [image]="'https://th.bing.com/th/id/OIP.3ZvnrEPm49k4OJ5UMN0tawHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'"
-            (selezionato)="onCardClick(item)"
-          />
-        </div>
-      }
+    <div class="lista-scroll p-1">
+      <div class="row g-4">
+        @for (item of valutazioniFiltrate(); track $index) {
+          <div class="col-12 col-sm-6 col-lg-3">
+            <app-card
+              [codiceStudente]="item.codiceStudente"
+              [voto]="item.voto"
+              [image]="getImmagineStudente(item.codiceStudente)"
+              (selezionato)="onCardClick(item)"
+            />
+          </div>
+        }
+      </div>
     </div>
   }
 
-  <div class="mt-4">
-    <p class="fw-semibold mb-2 text-center bg-info rounded text-white py-1">Crea nuova valutazione</p>
-
-    <a routerLink="nuova" class="btn btn-primary text-light px-4">
-        Nuova valutazione
-    </a>
-  </div>
 </div>

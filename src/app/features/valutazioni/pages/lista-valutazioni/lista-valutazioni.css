@@ -1,0 +1,52 @@
+.titolo-linea {
+  position: relative;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.titolo-linea::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 3px;
+  background: #000080;
+  margin: 2px auto 0;
+  border-radius: 10px;
+}
+
+.lista-scroll {
+  max-height: calc(100vh - 220px); 
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+
+.lista-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lista-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.lista-scroll::-webkit-scrollbar-thumb {
+  background: #000080;
+  border-radius: 10px;
+}
+
+.lista-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
+}
+
+.freccia-toggle i {
+  color: #777777;
+  transition: color 0.2s ease;
+}
+
+.freccia-toggle:hover i {
+  color: #000080;
+}
+
