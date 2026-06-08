@@ -2,7 +2,7 @@
 
   @if (loading()) {
     <div class="text-center my-5">
-      <div class="spinner-border text-primary" role="status"></div>
+      <div class="spinner-border text-navy" role="status"></div>
     </div>
   }
 
@@ -15,12 +15,17 @@
   @else {
     @if (valutazione()) {
       <div class="card shadow p-4">
-        <h2 class="text-primary mb-3">
+        <h2 class="text-navy mb-3">
           Studente: {{ valutazione()!.codiceStudente }}
         </h2>
 
         <p><strong>Edizione:</strong> {{ valutazione()!.codiceEdizione }}</p>
-        <p><strong>Voto:</strong> {{ valutazione()!.voto }}</p>
+        <p>
+          <strong>Voto:</strong> 
+          <span [ngClass]="classeBadge(valutazione()!.voto)">
+            {{ valutazione()!.voto }}
+          </span>
+        </p>
         <p><strong>Livello:</strong> {{ valutazione()!.livelloRaggiunto }}</p>
         <p><strong>Data:</strong> {{ valutazione()!.data }}</p>
       </div>
@@ -31,11 +36,11 @@
     }
   }
 
-  <button class="btn btn-primary text-white mt-3" routerLink="/valutazioni">
+  <button class="btn btn-navy text-white mt-3" routerLink="/valutazioni">
     Torna alla lista
   </button>
 
-  <a [routerLink]="['/valutazioni', id, 'modifica']" class="btn btn-info text-white ms-3 mt-3">
+  <a [routerLink]="['/valutazioni', id, 'modifica']" class="btn btn-primary text-white ms-3 mt-3">
     Modifica
   </a>
 

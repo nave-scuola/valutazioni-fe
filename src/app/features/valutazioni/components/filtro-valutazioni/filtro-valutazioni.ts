@@ -1,9 +1,10 @@
 import { Component, inject, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-filtro-valutazioni',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './filtro-valutazioni.html',
   styleUrl: './filtro-valutazioni.css',
 })
