@@ -2,7 +2,7 @@
 
   @if (loading()) {
     <div class="text-center my-5">
-      <div class="spinner-border text-primary" role="status"></div>
+      <div class="spinner-border text-navy" role="status"></div>
     </div>
   }
 
@@ -15,7 +15,7 @@
   @else {
     @if (valutazione()) {
       <div class="card shadow p-4">
-        <h2 class="text-primary mb-3">
+        <h2 class="text-navy mb-3">
           Studente: {{ valutazione()!.codiceStudente }}
         </h2>
 
