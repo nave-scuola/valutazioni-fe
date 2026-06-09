@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class ErrorStore {
-  readonly error = signal<String | null>(null);
+  readonly error = signal<string | null>(null);
 
   set(message: string) {
     this.error.set(message);
