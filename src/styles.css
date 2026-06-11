@@ -22,6 +22,10 @@ body, .card, .page-header-sticky, .lista-scroll {
   color: #f8f8f8 !important;
 }
 
+body.dark-mode .text-muted {
+  color: #e2e2e2 !important;
+}
+
 .dark-mode .page-header-sticky {
   background-color: #1e1e1e !important;
   border-bottom: 2px solid #a8c4ff;
